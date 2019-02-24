@@ -1,0 +1,11 @@
+2019/02/22 07:30:41 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:17
+2019/02/22 08:04:12 [emerg] 1#1: no "events" section in configuration
+2019/02/22 08:06:35 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/conf.d/default.conf:17
+2019/02/22 08:09:10 [emerg] 1#1: host not found in upstream "php:9000" in /etc/nginx/nginx.conf:30
+2019/02/22 08:10:52 [emerg] 1#1: host not found in upstream "php" in /etc/nginx/nginx.conf:30
+2019/02/22 08:18:27 [emerg] 1#1: upstream "php" may not have port 9000 in /etc/nginx/conf.d/default.conf:17
+2019/02/22 08:23:34 [emerg] 1#1: unknown directive "index.html" in /etc/nginx/conf.d/default.conf:8
+2019/02/23 05:35:03 [error] 6#6: *1 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://172.19.0.2:9000/index.php", host: "localhost"
+2019/02/23 05:36:00 [error] 6#6: *1 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://172.19.0.2:9000/index.php", host: "localhost"
+2019/02/24 00:12:35 [error] 6#6: *1 directory index of "/www/" is forbidden, client: 172.21.0.4, server: , request: "GET / HTTP/1.0", host: "web-services"
+2019/02/24 00:12:57 [error] 6#6: *2 directory index of "/www/" is forbidden, client: 172.21.0.4, server: , request: "GET / HTTP/1.0", host: "web-services"

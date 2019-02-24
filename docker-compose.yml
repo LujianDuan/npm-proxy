@@ -1,0 +1,58 @@
+---
+version: '3'
+services:
+  proxy:
+    image: nginx:1.14-alpine
+    volumes:
+      - ./proxy/conf.d/:/etc/nginx/conf.d/
+      - ./proxy/logs/:/var/log/nginx/
+    ports:
+      - "80:80"
+    command: ['nginx','-g','daemon off;']
+  web1:
+    image: nginx:1.14-alpine
+    volumes:
+      - ./web1/conf.d/:/etc/nginx/conf.d/
+      - ./web1/logs/:/var/log/nginx/
+      - ./www/:/www/
+    expose:
+      - "80"
+    command: ['nginx','-g','daemon off;']
+  web2:
+    image: nginx:1.14-alpine
+    volumes:
+      - ./web2/conf.d/:/etc/nginx/conf.d/
+      - ./web2/logs/:/var/log/nginx/
+      - ./www/:/www/
+    expose:
+      - "80"
+    command: ['nginx','-g','daemon off;']
+  web3:
+    image: nginx:1.14-alpine
+    volumes:
+      - ./web3/conf.d/:/etc/nginx/conf.d/
+      - ./web3/logs/:/var/log/nginx/
+      - ./www/:/www/
+    expose:
+      - "80"
+    command: ['nginx','-g','daemon off;']
+  php1:
+    image: lujian/php:7.3.2-fpm-alpine-redis
+    volumes:
+      - ./www/:/www/
+    expose:
+      - "9000"
+  php2:
+    image: lujian/php:7.3.2-fpm-alpine-redis
+    volumes:
+      - ./www/:/www/
+    expose:
+      - "9000"
+  php3:
+    image: lujian/php:7.3.2-fpm-alpine-redis
+    volumes:
+      - ./www/:/www/
+    expose:
+      - "9000"
+    #db:
+    #  image: ""
