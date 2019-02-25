@@ -1,0 +1,10 @@
+FROM php:7.3.2-fpm-alpine3.8
+RUN docker-php-source extract \ 
+    && docker-php-ext-install  pdo_mysql \
+    && apk add autoconf gcc g++ make \
+    && pecl install redis-4.0.1 \
+    && docker-php-ext-enable redis \
+#    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+    && docker-php-source delete \
+    && rm -rf /var/cache/apk/* \
+    && rm -rf /tmp/pear/download/* 

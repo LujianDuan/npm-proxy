@@ -11,6 +11,7 @@ services:
     command: ['nginx','-g','daemon off;']
   web1:
     image: nginx:1.14-alpine
+    restart: always
     volumes:
       - ./web1/conf.d/:/etc/nginx/conf.d/
       - ./web1/logs/:/var/log/nginx/
@@ -20,6 +21,7 @@ services:
     command: ['nginx','-g','daemon off;']
   web2:
     image: nginx:1.14-alpine
+    restart: always
     volumes:
       - ./web2/conf.d/:/etc/nginx/conf.d/
       - ./web2/logs/:/var/log/nginx/
@@ -29,6 +31,7 @@ services:
     command: ['nginx','-g','daemon off;']
   web3:
     image: nginx:1.14-alpine
+    restart: always
     volumes:
       - ./web3/conf.d/:/etc/nginx/conf.d/
       - ./web3/logs/:/var/log/nginx/
@@ -38,21 +41,34 @@ services:
     command: ['nginx','-g','daemon off;']
   php1:
     image: duanlujian/php:7.3.2-fpm-alpine-redis
+    restart: always
     volumes:
       - ./www/:/www/
     expose:
       - "9000"
   php2:
     image: duanlujian/php:7.3.2-fpm-alpine-redis
+    restart: always
     volumes:
       - ./www/:/www/
     expose:
       - "9000"
   php3:
     image: duanlujian/php:7.3.2-fpm-alpine-redis
+    restart: always
     volumes:
       - ./www/:/www/
     expose:
       - "9000"
-    #db:
-    #  image: ""
+  db:
+      image: "mysql:5.7.25"
+      ports: 
+        - "3306:3306"
+      restart: always
+      volumes:
+        - ./mysql/data/:/var/lib/mysql/
+        - ./mysql/conf.d/:/etc/mysql/conf.d/
+      environment: 
+        MYSQL_ROOT_PASSWORD: 111111
+        MYSQL_USER: duanlujian
+        MYSQL_PASSWORD: 111111

@@ -8,3 +8,4 @@
 2019/02/23 05:35:03 [error] 6#6: *1 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://172.19.0.2:9000/index.php", host: "localhost"
 2019/02/23 05:36:00 [error] 6#6: *1 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 172.19.0.1, server: localhost, request: "GET / HTTP/1.1", upstream: "http://172.19.0.2:9000/index.php", host: "localhost"
 2019/02/24 00:12:37 [error] 7#7: *1 directory index of "/www/" is forbidden, client: 172.21.0.4, server: localhost, request: "GET / HTTP/1.0", host: "web-services"
+2019/02/24 12:41:47 [error] 6#6: *5 open() "/www/beacon.js" failed (2: No such file or directory), client: 172.18.0.2, server: localhost, request: "GET /beacon.js HTTP/1.0", host: "web-services", referrer: "http://www.iqiyi.com/dianshiju/"
