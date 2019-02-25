@@ -2,3 +2,8 @@
 web1/logs/
 web2/logs/
 web3/logs/
+proxy/logs/
+www/framework/
+web1/conf.d/framework.conf
+web2/conf.d/framework.conf
+web3/conf.d/framework.conf
