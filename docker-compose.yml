@@ -40,21 +40,21 @@ services:
       - "80"
     command: ['nginx','-g','daemon off;']
   php1:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:5.6-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
     expose:
       - "9000"
   php2:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:5.6-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
     expose:
       - "9000"
   php3:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:5.6-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
