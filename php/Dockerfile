@@ -1,6 +1,7 @@
-FROM php:7.3.2-fpm-alpine3.8
+FROM php:5.6-fpm-alpine3.8
 RUN docker-php-source extract \ 
     && docker-php-ext-install  pdo_mysql \
+    && docker-php-ext-install  mysql \
     && docker-php-ext-install  mysqli \
     && apk add autoconf gcc g++ make \
     && pecl install redis-4.0.1 \
