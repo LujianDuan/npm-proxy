@@ -1,5 +1,6 @@
 FROM php:7.3.2-fpm-alpine3.8
 RUN docker-php-source extract \ 
+    && docker-php-ext-enable mcrypt \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  mysqli \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
