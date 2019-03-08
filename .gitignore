@@ -8,3 +8,6 @@ web1/conf.d/framework.conf
 web2/conf.d/framework.conf
 web3/conf.d/framework.conf
 www/noCms/
+web1/conf.d/noCms.conf
+web2/conf.d/noCms.conf
+web3/conf.d/noCms.conf
