@@ -2,6 +2,7 @@ FROM php:7.3.2-fpm-alpine3.8
 RUN docker-php-source extract \ 
     && apk add libjpeg-turbo-dev \
     && apk add libpng-dev \
+    && apk add libzip \
     && apk add freetype-dev \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  mysqli \
