@@ -1,5 +1,6 @@
 FROM php:7.3.2-fpm-alpine3.8
 RUN docker-php-source extract \ 
+    && apk update \
     && apk add libmcrypt-dev \
     && apk add libjpeg \
     && apk add libjpeg-devel \
