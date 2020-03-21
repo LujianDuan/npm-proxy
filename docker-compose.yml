@@ -1,5 +1,5 @@
 ---
-version: '3'
+version: '3.7'
 services:
   proxy:
     image: nginx:1.14-alpine
@@ -106,3 +106,23 @@ services:
         MYSQL_ROOT_PASSWORD: 111111
         MYSQL_USER: duanlujian
         MYSQL_PASSWORD: 111111
+  redis:
+      image: "redis:5.0.8-alpine"
+      ports: 
+        - "6379:6379"
+      restart: always
+      volumes:
+        - ./redis/data/:/data/
+        - ./redis/conf/:/usr/local/etc/redis/
+      command: [
+      "redis-server",
+      "/usr/local/etc/redis/redis.conf",
+      "--daemonize no",
+      "--bind 0.0.0.0",
+      "--appendonly yes",
+      # "--save \"\"",
+      "--aof-use-rdb-preamble yes"
+      ]
+      #configs:
+      #- source: redis_conf
+      #  target: /redis.conf
