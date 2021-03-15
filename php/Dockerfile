@@ -1,5 +1,8 @@
 FROM php:7.3.2-fpm-alpine3.8
+ADD https://pecl.php.net/get/amqp-1.7.0.tgz /usr/src/php/ext/amqp.tgz \
 RUN docker-php-source extract \ 
+    && tar -xf /usr/src/php/ext/amqp.tgz -C /usr/src/php/ext/ \
+    && rm /usr/src/php/ext/amqp.tgz \
     && apk add libjpeg-turbo-dev \
     && apk add libpng-dev \
     && apk add libzip-dev \
@@ -14,8 +17,7 @@ RUN docker-php-source extract \
     && docker-php-ext-enable redis \
     && docker-php-ext-install zip \
     && docker-php-ext-enable zip \
-    && docker-php-ext-install ampq \
-    && docker-php-ext-enable ampq \
+    && docker-php-ext-install amqp-1.7.0 \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
