@@ -16,7 +16,7 @@ RUN docker-php-source extract \
     && docker-php-ext-install zip \
     && docker-php-ext-enable zip \
     && pecl install amqp \
-    && docker-php-ext-enable ampq \
+    && docker-php-ext-enable amqp \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
