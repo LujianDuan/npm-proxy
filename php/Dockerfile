@@ -8,7 +8,7 @@ RUN docker-php-source extract \
     && apk add rabbitmq-c-dev \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  mysqli \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
+    && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ --with-png=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && apk add autoconf gcc g++ make \
     && pecl install redis-4.0.1 \
@@ -16,8 +16,8 @@ RUN docker-php-source extract \
     && docker-php-ext-install zip \
     && docker-php-ext-enable zip \
     && pecl install amqp \
-    && pecl install mongodb \
     && docker-php-ext-enable ampq \
+    && pecl install mongodb \
     && docker-php-ext-enable mongodb \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     && docker-php-source delete \
