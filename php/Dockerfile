@@ -19,7 +19,7 @@ RUN docker-php-source extract \
     && docker-php-ext-enable amqp \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb \
-    && docker-php-ext-install  -j$(nproc) bcmath \
+    && docker-php-ext-install bcmath \
     && docker-php-ext-enable bcmath \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     && docker-php-source delete \
