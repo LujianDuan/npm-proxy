@@ -15,7 +15,7 @@ RUN docker-php-source extract \
     && docker-php-ext-enable redis \
     && docker-php-ext-install zip \
     && docker-php-ext-enable zip \
-    && pecl amqp \
+    && pecl install amqp \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
