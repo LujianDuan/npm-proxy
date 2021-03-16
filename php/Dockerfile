@@ -1,7 +1,7 @@
 FROM php:7.3.2-fpm-alpine3.8
 RUN docker-php-source extract \ 
     && apk add libmcrypt-dev \
-    && apk add libjpeg-devel \
+    && apk add libjpeg-dev \
     && docker-php-ext-install mcrypt \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  mysqli \
