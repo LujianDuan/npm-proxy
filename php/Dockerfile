@@ -21,6 +21,8 @@ RUN docker-php-source extract \
     && docker-php-ext-enable mongodb \
     && docker-php-ext-install bcmath \
     && docker-php-ext-enable bcmath \
+    && docker-php-ext-install sockets \
+    && docker-php-ext-enable sockets \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
