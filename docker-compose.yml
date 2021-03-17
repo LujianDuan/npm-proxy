@@ -6,8 +6,10 @@ services:
     volumes:
       - ./proxy/conf.d/:/etc/nginx/conf.d/
       - ./proxy/logs/:/var/log/nginx/
+      - ./proxy/ssl/:/etc/nginx/ssl/
     ports:
       - "80:80"
+      - "443:443"
     command: ['nginx','-g','daemon off;']
   web1:
     image: nginx:1.14-alpine
@@ -60,38 +62,43 @@ services:
       - "80"
     command: ['nginx','-g','daemon off;']
   php1:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:7.4.16-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
+      - ./php/etc/:/usr/local/etc/php/
     expose:
       - "9000"
   php2:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:7.4.16-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
+      - ./php/etc/:/usr/local/etc/php/
     expose:
       - "9000"
   php3:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:7.4.16-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
+      - ./php/etc/:/usr/local/etc/php/
     expose:
       - "9000"
   php4:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:7.4.16-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
+      - ./php/etc/:/usr/local/etc/php/
     expose:
       - "9000"
   php5:
-    image: duanlujian/php:7.3.2-fpm-alpine-redis
+    image: duanlujian/php:7.4.16-fpm-alpine-redis
     restart: always
     volumes:
       - ./www/:/www/
+      - ./php/etc/:/usr/local/etc/php/
     expose:
       - "9000"
   db:
@@ -102,6 +109,8 @@ services:
       volumes:
         - ./mysql/data/:/var/lib/mysql/
         - ./mysql/conf.d/:/etc/mysql/conf.d/
+        - ./mysql/tmp/:/tmp/
+        - ./mysql/var/run/mysqld/:/var/run/mysqld/
       environment: 
         MYSQL_ROOT_PASSWORD: 111111
         MYSQL_USER: duanlujian
