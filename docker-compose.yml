@@ -132,6 +132,16 @@ services:
       # "--save \"\"",
       "--aof-use-rdb-preamble yes"
       ]
+  mongo:
+      image: "mongo"
+      restart: always
+      ports:
+          - "27017:27017"
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: yhHlZ1dQ8AjPtWgm
+          #ME_CONFIG_MONGODB_ADMINUSERNAME: root
+          #ME_CONFIG_MONGODB_ADMINPASSWORD: yhHlZ1dQ8AjPtWgm
       #configs:
       #- source: redis_conf
       #  target: /redis.conf
