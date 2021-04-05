@@ -18,3 +18,6 @@ RUN docker-php-source extract \
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/pear/download/* 
+    && curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/bin/composer && chmod u+x /usr/bin/composer \
+    && apk add nodejs
