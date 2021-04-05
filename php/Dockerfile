@@ -20,4 +20,5 @@ RUN docker-php-source extract \
     && rm -rf /tmp/pear/download/* 
     && curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer && chmod u+x /usr/bin/composer \
-    && apk add nodejs
+    && apk add npm \
+    && apk add nodejs 
