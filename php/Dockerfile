@@ -1,9 +1,12 @@
 FROM php:7.3.2-fpm-alpine3.8
 RUN docker-php-source extract \ 
-    && apk add libmcrypt-dev \
     && apk add libjpeg-turbo-dev \
-    && apk add libfreetype6-dev \
     && apk add libpng-dev \
+    && apk add libzip-dev \
+    && apk add freetype-dev \
+    && apk add libmcrypt-dev \
+    #&& apk add rabbitmq-c \
+    #&& apk add rabbitmq-c-dev \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  mysqli \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
@@ -15,11 +18,12 @@ RUN docker-php-source extract \
     && docker-php-ext-enable zip \
     && pecl install mcrypt-1.0.3 \
     && docker-php-ext-enable mcrypt \
-#    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-    && docker-php-source delete \
-    && rm -rf /var/cache/apk/* \
-    && rm -rf /tmp/pear/download/*  \
+    #&& pecl install amqp \
     && curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer && chmod u+x /usr/bin/composer \
     && apk add npm \
-    && apk add nodejs 
+    && apk add nodejs \
+#    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+    && docker-php-source delete \
+    && rm -rf /var/cache/apk/* \
+    && rm -rf /tmp/pear/download/*
