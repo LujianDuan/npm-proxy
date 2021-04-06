@@ -17,7 +17,7 @@ RUN docker-php-source extract \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
-    && rm -rf /tmp/pear/download/* 
+    && rm -rf /tmp/pear/download/*  \
     && curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer && chmod u+x /usr/bin/composer \
     && apk add npm \
