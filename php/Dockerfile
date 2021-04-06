@@ -2,6 +2,7 @@ FROM php:7.3.2-fpm-alpine3.8
 RUN docker-php-source extract \ 
     && apk add libmcrypt-dev \
     && apk add libjpeg-turbo-dev \
+    && apt-get -y install libfreetype6-dev \
     && apk add libpng-dev \
     && docker-php-ext-install  pdo_mysql \
     && docker-php-ext-install  mysqli \
@@ -19,6 +20,6 @@ RUN docker-php-source extract \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/pear/download/*  \
     && curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/bin/composer && chmod u+x /usr/bin/composer 
-    #&& apk add npm \
-    #&& apk add nodejs 
+    && mv composer.phar /usr/bin/composer && chmod u+x /usr/bin/composer \
+    && apk add npm \
+    && apk add nodejs 
