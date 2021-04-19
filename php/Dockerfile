@@ -25,10 +25,6 @@ RUN docker-php-source extract \
     && docker-php-ext-enable sockets \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb \
-    && apk --update add imagemagick \
-    && apk add imagemagick-dev \
-    && pecl install imagick \
-    && docker-php-ext-enable imagick \
 #    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
