@@ -23,8 +23,6 @@ RUN docker-php-source extract \
     && docker-php-ext-enable bcmath \
     && docker-php-ext-install sockets \
     && docker-php-ext-enable sockets \
-    && pecl install mongodb \
-    && docker-php-ext-enable mongodb \
     && apk add imagemagick-dev \
     && pecl install imagick \
     && docker-php-ext-enable imagick \
