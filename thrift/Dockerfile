@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV THRIFT_VERSION v0.14.0
+ENV THRIFT_VERSION v0.13.0
 
 RUN buildDeps=" \
 		automake \
