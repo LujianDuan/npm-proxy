@@ -20,5 +20,6 @@ RUN docker-php-source extract \
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/pear/download/* \
+    && mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
     && curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer && chmod u+x /usr/bin/composer 
