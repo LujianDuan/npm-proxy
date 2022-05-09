@@ -3,6 +3,8 @@ version: '3'
 services:
   proxy:
     image: nginx:1.14-alpine
+    environment: 
+      TZ: Asia/Shanghai
     volumes:
       - ./proxy/conf.d/:/etc/nginx/conf.d/
       - ./proxy/logs/:/var/log/nginx/
@@ -11,6 +13,8 @@ services:
     command: ['nginx','-g','daemon off;']
   web1:
     image: nginx:1.14-alpine
+    environment: 
+      TZ: Asia/Shanghai
     restart: always
     volumes:
       - ./web1/conf.d/:/etc/nginx/conf.d/
@@ -22,6 +26,8 @@ services:
   web2:
     image: nginx:1.14-alpine
     restart: always
+    environment: 
+      TZ: Asia/Shanghai
     volumes:
       - ./web2/conf.d/:/etc/nginx/conf.d/
       - ./web2/logs/:/var/log/nginx/
@@ -32,6 +38,8 @@ services:
   web3:
     image: nginx:1.14-alpine
     restart: always
+    environment: 
+      TZ: Asia/Shanghai
     volumes:
       - ./web3/conf.d/:/etc/nginx/conf.d/
       - ./web3/logs/:/var/log/nginx/
@@ -42,6 +50,8 @@ services:
   web4:
     image: nginx:1.14-alpine
     restart: always
+    environment: 
+      TZ: Asia/Shanghai
     volumes:
       - ./web4/conf.d/:/etc/nginx/conf.d/
       - ./web4/logs/:/var/log/nginx/
@@ -52,6 +62,8 @@ services:
   web5:
     image: nginx:1.14-alpine
     restart: always
+    environment: 
+      TZ: Asia/Shanghai
     volumes:
       - ./web5/conf.d/:/etc/nginx/conf.d/
       - ./web5/logs/:/var/log/nginx/
@@ -66,6 +78,8 @@ services:
       - ./www/:/www/
     expose:
       - "9000"
+    environment: 
+      TZ: Asia/Shanghai
   php2:
     image: duanlujian/php:7.3.2-fpm-alpine-redis
     restart: always
@@ -73,6 +87,8 @@ services:
       - ./www/:/www/
     expose:
       - "9000"
+    environment: 
+      TZ: Asia/Shanghai
   php3:
     image: duanlujian/php:7.3.2-fpm-alpine-redis
     restart: always
@@ -80,6 +96,8 @@ services:
       - ./www/:/www/
     expose:
       - "9000"
+    environment: 
+      TZ: Asia/Shanghai
   php4:
     image: duanlujian/php:7.3.2-fpm-alpine-redis
     restart: always
@@ -87,6 +105,8 @@ services:
       - ./www/:/www/
     expose:
       - "9000"
+    environment: 
+      TZ: Asia/Shanghai
   php5:
     image: duanlujian/php:7.3.2-fpm-alpine-redis
     restart: always
@@ -94,6 +114,8 @@ services:
       - ./www/:/www/
     expose:
       - "9000"
+    environment: 
+      TZ: Asia/Shanghai
   db:
       image: "mysql:5.7.25"
       ports: 
@@ -106,3 +128,4 @@ services:
         MYSQL_ROOT_PASSWORD: 111111
         MYSQL_USER: duanlujian
         MYSQL_PASSWORD: 111111
+        TZ: Asia/Shanghai

@@ -17,6 +17,7 @@ RUN docker-php-source extract \
     && docker-php-ext-enable mongodb \
     && docker-php-ext-install bcmath \
     && docker-php-ext-enable bcmath \
+    && apk add --no-cache tzdata \
     && docker-php-source delete \
     && rm -rf /var/cache/apk/* \
     && rm -rf /tmp/pear/download/* \
